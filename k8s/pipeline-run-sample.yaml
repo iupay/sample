@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  name: sample
+spec:
+  serviceAccountName: default
+  pipelineRef:
+    name: deno
+  resources:
+    - name: git-source
+      resourceRef:
+        name: sample
