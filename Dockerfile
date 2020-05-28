@@ -2,15 +2,12 @@ FROM hayd/alpine-deno:1.0.2
 
 EXPOSE 8000
 
-WORKDIR /app
+WORKDIR /opt/app
 
 USER deno
 
-COPY deps.ts .
-RUN deno cache deps.ts
-
 ADD . .
 
-RUN deno cache main.ts
+RUN deno cache index.ts
 
-CMD ["run", "--allow-net", "--allow-read", "main.ts"]
+CMD ["run", "--allow-net", "--allow-read", "index.ts"]
