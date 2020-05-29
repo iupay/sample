@@ -12,5 +12,5 @@ const server = new Server(listen(config));
 console.log(`Server is running on port: ${config.port}`);
 
 for await (const req of server) {
-  req.respond({ body: `${hello(req.url)}\n` });
+  req.respond({ body: `v2 - ${hello(req.url)}\n` });
 }
